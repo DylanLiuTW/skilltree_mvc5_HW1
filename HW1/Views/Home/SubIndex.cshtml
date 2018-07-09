@@ -1,0 +1,33 @@
+﻿@using HW1.Enums
+@model IEnumerable<InOutViewModel>
+@{
+    Layout = null;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>#</th>
+                <th>類別</th>
+                <th>日期</th>
+                <th>金額</th>
+            </tr>
+            @if ( Model != null && Model.Any() )
+            {
+                var i = 1;
+                foreach( var m in Model )
+                {
+                    <tr>
+                        <td>@( i )</td>
+                        <td>@( m.Category.GetDescription() )</td>
+                        <td>@( m.Date.ToString( "yyyy-MM-dd" ) )</td>
+                        <td>@( m.Money.ToString( "N0" ) )</td>
+                    </tr>
+
+                    i++;
+                }
+            }
+        </table>
+    </div>
+</div>
