@@ -27,7 +27,7 @@ namespace HW1.Models.Service
                                               } );
             }
 
-            return model.AsEnumerable();
+            return model;
         }
     }
 }

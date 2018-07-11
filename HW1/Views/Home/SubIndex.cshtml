@@ -2,6 +2,7 @@
 @model IEnumerable<InOutViewModel>
 @{
     Layout = null;
+    var i = 1;
 }
 
 <div class="row">
@@ -15,17 +16,14 @@
             </tr>
             @if ( Model != null && Model.Any() )
             {
-                var i = 1;
                 foreach( var m in Model )
                 {
                     <tr>
-                        <td>@( i )</td>
+                        <td>@( ++i )</td>
                         <td>@( m.Category.GetDescription() )</td>
                         <td>@( m.Date.ToString( "yyyy-MM-dd" ) )</td>
                         <td>@( m.Money.ToString( "N0" ) )</td>
                     </tr>
-
-                    i++;
                 }
             }
         </table>
